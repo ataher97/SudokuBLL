@@ -16,11 +16,11 @@ public class LatinSquare {
 	}
 
 	public int[][] getLatinSquare() {
-		return LatinSquare;
+		return this.LatinSquare;
 	}
 
 	public void setLatinSquare(int[][] latinSquare) {
-		LatinSquare = latinSquare;
+		this.LatinSquare = latinSquare;
 	}
 
 	public static boolean hasDuplicates(int[] arr) {
@@ -86,47 +86,44 @@ public class LatinSquare {
 
 	public int[] getColumn(int iCol) {
 
-		int rowLength = this.LatinSquare.length;
+		int[] column = new int[this.LatinSquare.length];
 
-		int[] column = new int[rowLength];
-
-		for (int i = 0; i < rowLength; i++) {
-			int num = this.LatinSquare[i][iCol];
-			column[i] = num;
+		for (int i = 0; i < this.LatinSquare.length; i++) {
+			column[i] = this.LatinSquare[i][iCol];
 		}
 		return column;
 	}
 
 	public int[] getRow(int iRow) {
-
-		int[] row = this.LatinSquare[iRow];
+		
+		int[] row = new int[this.LatinSquare.length];
+		
+		for (int i = 0; i< this.LatinSquare.length;i++) {
+			row[i] = this.LatinSquare[iRow][i];
+		}
 		return row;
 	}
-	
+
 	public boolean isLatinSquare() {
 		boolean isLatinSquare = true;
 
 		int rowLength = this.LatinSquare.length;
-
+		
 		for (int i = 0; i < rowLength; i++) {
-			//System.out.println(i);
-			//System.out.println(Arrays.toString(getColumn(i)));
-			//System.out.println(Arrays.toString(getRow(i)));
-			if (hasDuplicates(getColumn(i)) == true) {
-
-				return false;
+			if (hasDuplicates(getColumn(i))) {
+				isLatinSquare = false;
 			}
-			if (hasDuplicates(getRow(i)) == true) {
-				return false;
+			if (hasDuplicates(getRow(i))) {
+				isLatinSquare = false;
 			}
 		}
 
 		for (int j = 0; j < rowLength - 1; j++) {
-			if (hasAllValues(getColumn(j), getColumn(j + 1)) == false) {
-				return false;
+			if (!hasAllValues(getColumn(j), getColumn(j + 1))) {
+				isLatinSquare = false;
 			}
-			if (hasAllValues(getRow(j), getRow(j + 1)) == false) {
-				return false;
+			if (!hasAllValues(getRow(j), getRow(j + 1))) {
+				isLatinSquare = false;
 			}
 		}
 		return isLatinSquare;

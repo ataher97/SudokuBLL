@@ -209,11 +209,11 @@ public class LatinSquareTest {
 		assertFalse(ls.isLatinSquare());
 
 	}
-
+	
 	@Test
 	public void isLatinSquare_test4() {
 
-		int[][] LatinSquare = { { 1, 2, 3 }, { 2, 3, 1 }, { 3, 1, 2 } };
+		int[][] LatinSquare = { { 1, 2, 3, 4 }, { 2, 1, 4, 3 }, { 3, 4, 1, 2 }, {4, 3, 2, 1} };
 		LatinSquare ls = new LatinSquare(LatinSquare);
 
 		assertTrue(ls.isLatinSquare());
@@ -253,25 +253,5 @@ public class LatinSquareTest {
 			int num = arr[i][2];
 			column[i] = num;
 		}
-		//System.out.println(Arrays.toString(column));
 	}
-	// int[][] LatinSquare = { { 0, 2, 3 }, { 2, 3, 0 }, { 3, 0, 2 } };
-	// LatinSquare ls = new LatinSquare(LatinSquare);
-
-	// assertTrue(ls.ContainsZero());
-
 }
-/*
- * @Test public void random() {
- * 
- * LatinSquare lq = new LatinSquare();
- * 
- * System.out.println(Arrays.toString()); System.out.println(Arrays.toString());
- * 
- * int[] arr2 = lq.getColumn(icol);
- * 
- * assertTrue("This didnt work",Arrays.equals(arr1, arr2));
- * 
- * } //System.out.println(Arrays.toString(arr1));
- * //System.out.println(Arrays.toString(arr2));
- */
