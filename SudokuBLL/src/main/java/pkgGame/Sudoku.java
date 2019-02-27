@@ -1,9 +1,9 @@
 package pkgGame;
 
-//import java.util.Arrays;
+import java.util.Arrays;
 
 public class Sudoku {
 
-	private int [] [] puzzle;
-	
+	private int[][] puzzle;
+
 }

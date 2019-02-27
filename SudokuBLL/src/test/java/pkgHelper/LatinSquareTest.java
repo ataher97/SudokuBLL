@@ -12,36 +12,32 @@ public class LatinSquareTest {
 	public void hasDuplicates_test1() {
 
 		int[] arr = { 1, 2, 3, 4, 5 };
-		LatinSquare lq = new LatinSquare();
 
-		assertFalse(lq.hasDuplicates(arr));
+		assertFalse(LatinSquare.hasDuplicates(arr));
 	}
 
 	@Test
 	public void hasDuplicates_test2() {
 
 		int[] arr = { 1, 1, 3, 4, 5 };
-		LatinSquare lq = new LatinSquare();
 
-		assertTrue(lq.hasDuplicates(arr));
+		assertTrue(LatinSquare.hasDuplicates(arr));
 	}
 
 	@Test
 	public void hasDuplicates_test3() {
 
 		int[] arr = { 1, 2, 3, 4, 1 };
-		LatinSquare lq = new LatinSquare();
 
-		assertTrue(lq.hasDuplicates(arr));
+		assertTrue(LatinSquare.hasDuplicates(arr));
 	}
 
 	@Test
 	public void hasDuplicates_test4() {
 
 		int[] arr = null;
-		LatinSquare lq = new LatinSquare();
 
-		assertFalse(lq.hasDuplicates(arr));
+		assertFalse(LatinSquare.hasDuplicates(arr));
 	}
 
 	@Test
@@ -49,9 +45,8 @@ public class LatinSquareTest {
 
 		int[] arr = { 1, 2, 3, 4, 5 };
 		int iValue = 3;
-		LatinSquare lq = new LatinSquare();
 
-		assertTrue(lq.doesElementExist(arr, iValue));
+		assertTrue(LatinSquare.doesElementExist(arr, iValue));
 	}
 
 	@Test
@@ -59,9 +54,8 @@ public class LatinSquareTest {
 
 		int[] arr = { 1, 2, 3, 4, 5 };
 		int iValue = 99;
-		LatinSquare lq = new LatinSquare();
 
-		assertFalse(lq.doesElementExist(arr, iValue));
+		assertFalse(LatinSquare.doesElementExist(arr, iValue));
 	}
 
 	@Test
@@ -69,9 +63,8 @@ public class LatinSquareTest {
 
 		int[] arr = null;
 		int iValue = 1;
-		LatinSquare lq = new LatinSquare();
 
-		assertFalse(lq.doesElementExist(arr, iValue));
+		assertFalse(LatinSquare.doesElementExist(arr, iValue));
 	}
 
 	@Test
@@ -79,9 +72,8 @@ public class LatinSquareTest {
 
 		int[] arr1 = { 1, 2, 3, 4 };
 		int[] arr2 = { 1, 2, 3 };
-		LatinSquare lq = new LatinSquare();
 
-		assertTrue(lq.hasAllValues(arr1, arr2));
+		assertTrue(LatinSquare.hasAllValues(arr1, arr2));
 	}
 
 	@Test
@@ -89,9 +81,8 @@ public class LatinSquareTest {
 
 		int[] arr1 = { 1, 2, 3 };
 		int[] arr2 = { 1, 2, 3, 4 };
-		LatinSquare lq = new LatinSquare();
 
-		assertFalse(lq.hasAllValues(arr1, arr2));
+		assertFalse(LatinSquare.hasAllValues(arr1, arr2));
 	}
 
 	@Test
@@ -99,9 +90,8 @@ public class LatinSquareTest {
 
 		int[] arr1 = null;
 		int[] arr2 = { 1, 2, 3, 4 };
-		LatinSquare lq = new LatinSquare();
 
-		assertFalse(lq.hasAllValues(arr1, arr2));
+		assertFalse(LatinSquare.hasAllValues(arr1, arr2));
 	}
 
 	@Test
@@ -109,18 +99,18 @@ public class LatinSquareTest {
 
 		int[] arr1 = { 1, 2, 3 };
 		int[] arr2 = null;
-		LatinSquare lq = new LatinSquare();
 
-		assertFalse(lq.hasAllValues(arr1, arr2));
+		assertFalse(LatinSquare.hasAllValues(arr1, arr2));
 	}
 
 	@Test
 	public void getColumn_test1() {
 
 		int iCol = 0;
-		int[] arr1 = { 0, 1, 3, 4 };
-		LatinSquare lq = new LatinSquare();
-		int[] arr2 = lq.getColumn(iCol);
+		int[][] LatinSquare = { { 1, 2, 3 }, { 2, 3, 1 }, { 3, 1, 2 } };
+		LatinSquare ls = new LatinSquare(LatinSquare);
+		int[] arr1 = { 1, 2, 3 };
+		int[] arr2 = ls.getColumn(iCol);
 
 		assertTrue(Arrays.equals(arr1, arr2));
 	}
@@ -128,79 +118,160 @@ public class LatinSquareTest {
 	@Test
 	public void getColumn_test2() {
 
-		int iCol = 3;
-		int[] arr1 = { 3, 4, 2, 2 };
-		LatinSquare lq = new LatinSquare();
-		int[] arr2 = lq.getColumn(iCol);
+		int iCol = 2;
+		int[][] LatinSquare = { { 1, 2, 3 }, { 2, 3, 1 }, { 3, 1, 2 } };
+		LatinSquare ls = new LatinSquare(LatinSquare);
+		int[] arr1 = { 3, 1, 2 };
+		int[] arr2 = ls.getColumn(iCol);
 
 		assertTrue(Arrays.equals(arr1, arr2));
 
 	}
 
 	@Test
-	public void getColumn_tes3() {
+	public void getColumn_test3() {
 
 		int iCol = 0;
-		int[] arr1 = { 1, 1, 1, 1 };
-		LatinSquare lq = new LatinSquare();
-		int[] arr2 = lq.getColumn(iCol);
-
-		assertFalse(Arrays.equals(arr1, arr2));
-
-	}
-	
-	@Test
-	public void getRow_tes1() {
-
-		int iRow = 0;
-		int[] arr1 = {0, 1, 2, 3 };
-		LatinSquare lq = new LatinSquare();
-		int[] arr2 = lq.getRow(iRow);
-
-		assertTrue(Arrays.equals(arr1, arr2));
-
-	}
-	
-	@Test
-	public void getRow_tes2() {
-
-		int iRow = 3;
-		int[] arr1 = { 4, 1, 3, 2 };
-		LatinSquare lq = new LatinSquare();
-		int[] arr2 = lq.getRow(iRow);
-
-		assertTrue(Arrays.equals(arr1, arr2));
-
-	}
-	
-	@Test
-	public void getRow_tes3() {
-
-		int iRow = 0;
-		int[] arr1 = { 1, 1, 1, 1 };
-		LatinSquare lq = new LatinSquare();
-		int[] arr2 = lq.getRow(iRow);
-		
-		//System.out.println(Arrays.toString(arr1));
-		//System.out.println(Arrays.toString(arr2));
+		int[][] LatinSquare = { { 1, 2, 3 }, { 2, 3, 1 }, { 3, 1, 2 } };
+		LatinSquare ls = new LatinSquare(LatinSquare);
+		int[] arr1 = { 3, 1, 2 };
+		int[] arr2 = ls.getColumn(iCol);
 
 		assertFalse(Arrays.equals(arr1, arr2));
 
 	}
 
-/*	@Test
-	public void random() {
+	@Test
+	public void getRow_test1() {
 
-		LatinSquare lq = new LatinSquare();
-		
-		System.out.println(Arrays.toString());
-		System.out.println(Arrays.toString());
-		
-		int[] arr2 = lq.getColumn(icol);
+		int iRow = 0;
+		int[][] LatinSquare = { { 1, 2, 3 }, { 2, 3, 1 }, { 3, 1, 2 } };
+		LatinSquare ls = new LatinSquare(LatinSquare);
+		int[] arr1 = { 1, 2, 3 };
+		int[] arr2 = ls.getRow(iRow);
 
 		assertTrue(Arrays.equals(arr1, arr2));
 
 	}
-*/
+
+	@Test
+	public void getRow_test2() {
+
+		int iRow = 2;
+		int[][] LatinSquare = { { 1, 2, 3 }, { 2, 3, 1 }, { 3, 1, 2 } };
+		LatinSquare ls = new LatinSquare(LatinSquare);
+		int[] arr1 = { 3, 1, 2 };
+		int[] arr2 = ls.getRow(iRow);
+
+		assertTrue(Arrays.equals(arr1, arr2));
+
+	}
+
+	@Test
+	public void getRow_test3() {
+
+		int iRow = 0;
+		int[][] LatinSquare = { { 1, 2, 3 }, { 2, 3, 1 }, { 3, 1, 2 } };
+		LatinSquare ls = new LatinSquare(LatinSquare);
+		int[] arr1 = { 3, 1, 2 };
+		int[] arr2 = ls.getRow(iRow);
+
+		assertFalse(Arrays.equals(arr1, arr2));
+
+	}
+
+	@Test
+	public void isLatinSquare_test1() {
+
+		int[][] LatinSquare = { { 2, 2, 3 }, { 2, 3, 1 }, { 3, 1, 2 } };
+		LatinSquare ls = new LatinSquare(LatinSquare);
+
+		assertFalse(ls.isLatinSquare());
+
+	}
+
+	@Test
+	public void isLatinSquare_test2() {
+
+		int[][] LatinSquare = { { 1, 2, 4 }, { 2, 3, 1 }, { 3, 1, 2 } };
+		LatinSquare ls = new LatinSquare(LatinSquare);
+
+		assertFalse(ls.isLatinSquare());
+
+	}
+
+	@Test
+	public void isLatinSquare_test3() {
+
+		int[][] LatinSquare = { { 1, 2, 3 }, { 1, 3, 2 }, { 3, 1, 2 } };
+		LatinSquare ls = new LatinSquare(LatinSquare);
+
+		assertFalse(ls.isLatinSquare());
+
+	}
+
+	@Test
+	public void isLatinSquare_test4() {
+
+		int[][] LatinSquare = { { 1, 2, 3 }, { 2, 3, 1 }, { 3, 1, 2 } };
+		LatinSquare ls = new LatinSquare(LatinSquare);
+
+		assertTrue(ls.isLatinSquare());
+
+	}
+
+	@Test
+	public void ContainsZero_test1() {
+
+		int[][] LatinSquare = { { 1, 2, 3 }, { 2, 3, 1 }, { 3, 1, 2 } };
+		LatinSquare ls = new LatinSquare(LatinSquare);
+
+		assertFalse(ls.ContainsZero());
+
+	}
+
+	@Test
+	public void ContainsZero_test2() {
+
+		int[][] LatinSquare = { { 0, 2, 3 }, { 2, 3, 0 }, { 3, 0, 2 } };
+		LatinSquare ls = new LatinSquare(LatinSquare);
+
+		assertTrue(ls.ContainsZero());
+
+	}
+
+	@Test
+	public void code_test() {
+
+		int[][] arr = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+
+		int rowLength = arr.length;
+
+		int[] column = new int[rowLength];
+
+		for (int i = 0; i < rowLength; i++) {
+			int num = arr[i][2];
+			column[i] = num;
+		}
+		//System.out.println(Arrays.toString(column));
+	}
+	// int[][] LatinSquare = { { 0, 2, 3 }, { 2, 3, 0 }, { 3, 0, 2 } };
+	// LatinSquare ls = new LatinSquare(LatinSquare);
+
+	// assertTrue(ls.ContainsZero());
 
 }
+/*
+ * @Test public void random() {
+ * 
+ * LatinSquare lq = new LatinSquare();
+ * 
+ * System.out.println(Arrays.toString()); System.out.println(Arrays.toString());
+ * 
+ * int[] arr2 = lq.getColumn(icol);
+ * 
+ * assertTrue("This didnt work",Arrays.equals(arr1, arr2));
+ * 
+ * } //System.out.println(Arrays.toString(arr1));
+ * //System.out.println(Arrays.toString(arr2));
+ */
